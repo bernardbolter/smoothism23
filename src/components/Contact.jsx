@@ -8,6 +8,7 @@ import Philosophy from './Philosophy'
 import Impressum from './Impressum'
 import Daten from './Daten'
 
+
 const Contact = () => {
     const [smooth] = useContext(SmoothContext)
     return (
