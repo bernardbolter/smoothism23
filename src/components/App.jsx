@@ -4,6 +4,7 @@ import { useWindowSize } from '../helpers/useWindowSize'
 import { motion, AnimatePresence } from 'framer-motion'
 import CookieConsent from "react-cookie-consent";
 
+
 import Intro  from './Intro'
 import Projects from './Projects'
 import Contact from './Contact'
