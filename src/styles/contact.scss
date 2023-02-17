@@ -1,0 +1,56 @@
+@import './vars';
+
+.contact-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    @media screen and (min-width: $tablet) {
+        flex-direction: row;
+        height: 100vh;
+    }
+}
+
+.contact-text {
+    width: 90%;
+    margin: 20px 5%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: $tablet) {
+        width: 40%;
+        margin: 0 5%;
+        height: 100vh;
+    }
+
+    h1 {
+        font-family: 'IBM Plexo Mono', monospace;
+        font-size: 20px;
+        text-align: left;
+        width: 100%;
+        text-transform: uppercase;
+    }
+}
+
+.contact-form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 100px 0;
+
+    @media screen and (min-width: $tablet) {
+        width: 50%;
+        height: 100vh;
+        margin: 0;
+    }
+}

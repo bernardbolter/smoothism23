@@ -1,0 +1,303 @@
+@import './vars.scss';
+
+.intro-container {
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 75px;
+    height: 95px;
+    overflow: hidden;
+
+    @media screen and (min-width: $mobile) {
+        top: 30px;
+        left: 30px;
+        width: 100px;
+        height: 128px; 
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: 120px;
+        height: 153px; 
+    }
+}
+
+.bernard {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+
+    @media screen and (min-width: $mobile) {
+        top: 30px;
+        right: 30px;
+    }
+
+    h1 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        padding: 0;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 22px;
+        }
+    }
+
+    h2 {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0 0 7px 0;
+        padding: 0;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 16px;
+        }
+
+        span {
+            font-size: 10px;
+            font-weight: 300;
+
+            @media screen and (min-width: $tablet) {
+                font-size: 11px;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 11px;
+        font-weight: 300;
+        margin: 0;
+        padding: 0;
+        line-height: 13px;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 12px;
+        }
+
+        span {
+            font-size: 10px;
+
+            @media screen and (min-width: $tablet) {
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+.into-links {
+    position: absolute;
+    z-index: 400;
+    right: 15px;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    @media screen and (min-width: $mobile) {
+        right: 30px;
+        top: 150px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        right: 30px;
+        top: 36vh;
+    }
+
+    a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        opacity: 0.7;
+        transition: opacity .5s ease;
+        margin: 5px 0;
+
+        &:hover {
+            transition: opacity .5s ease;
+            opacity: 1;
+        }
+
+        svg {
+            width: 20px;
+        }
+
+        h4 {
+            font-size: 11px;
+            font-weight: 300;
+            padding: 0 0 0 3px;
+            margin: 0;
+        }
+    }
+
+    .intro-contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-top: 14px;
+        opacity: .5;
+        transition: opacity .5s ease;
+        cursor: pointer;
+
+        @media screen and (min-width: $tablet) {
+            margin-top: 174px;
+        }
+
+        &:hover {
+            opacity: .8;
+            transition: opacity .5s ease;
+        }
+
+        .intro-arrow {
+            width: 15px;
+
+            svg {
+                width: 100%;
+            }
+        }
+
+        p {
+            font-family: "IBM Plexo Mono", monospace;
+            font-size: 15px;
+            margin: 0;
+            padding: 0 0 0 5px;
+        }
+    }
+}
+
+.lead {
+    position: absolute;
+    top: 220px;
+    margin: 0 5%;
+
+    @media screen and (min-width: $mobile) {
+        top: 35vh;
+        left: 20%;
+        margin: 0;
+    }
+
+    @media screen and (min-width: $tablet) {
+        top: 35vh;
+        right: 30%;
+    }
+
+    h1 {
+        font-size: 17px;
+        line-height: 24px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+
+        @media screen and (min-width: $mobile) {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        @media screen and (min-width: $tablet) {
+            font-size: 28px;
+            line-height: 34px;
+            text-align: right;
+        }
+
+        @media screen and (min-width: $desktop) {
+            font-size: 32px;
+            line-height: 38px;
+        }
+    }
+}
+
+.pitch {
+    position: absolute;
+    top: 350px;
+    right: 40px;
+
+    @media screen and (min-width: $mobile) {
+        top: 60vh;
+        right: 5%;
+    }
+
+    @media screen and (min-width: $tablet) {
+        top: 60vh;
+        right: 30%;
+    }
+
+    h2 {
+        font-size: 14px;
+        line-height: 24px;
+        text-align: right;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (min-width: $mobile) {
+            font-size: 16px;
+            line-height: 28px;
+            text-align: right;
+        }
+    }
+
+    .pitch-padding {
+        padding-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 12px;
+        line-height: 23px;
+        text-align: right;
+        font-weight: 300;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (min-width: $mobile) {
+            font-size: 15px;
+            line-height: 23px;
+            text-align: right;
+        }
+    }
+}
+
+.box {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    margin: 15vh 0 15vh;
+    padding: 0;
+    top: 0;
+    left: 0;
+    // opacity: .05;
+
+    @media screen and (min-width: $mobile) {
+        width: 80%;
+        margin: 20vh 10% 15vh;
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: 60%;
+        margin: 25vh 20% 15vh;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+        position: absolute;
+    }
+}
