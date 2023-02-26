@@ -7,6 +7,7 @@ import * as Scroll from 'react-scroll'
 import Logo from '../svg/logo'
 import Insta from '../svg/insta'
 import Github from '../svg/github'
+import Arrow from '../svg/arrow'
 
 const Intro = () => {
     const [smooth] = useContext(SmoothContext)
@@ -19,9 +20,14 @@ const Intro = () => {
             style={{ 
                 color: smooth.primaryDark,
                 height: smooth.introHeight,
-                background: `linear-gradient(to top, ${smooth.primaryLight},${smooth.secondaryLight})`
+                // background: `linear-gradient(to top, ${smooth.primaryLight},${smooth.secondaryLight})`
             }}    
         >
+            <div className="intro-mask" 
+                style={{
+                    background: `linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.25), rgba(255,255,255,.5), rgba(255,255,255,.75), ${smooth.secondaryLight}, ${smooth.primaryLight})`
+                }}
+            />
             <motion.div 
                 className="logo"
                 initial={{ translateX: -200 }}
@@ -71,6 +77,7 @@ const Intro = () => {
             </motion.div>
             <motion.div className="into-links">
                 <motion.a 
+                    className="insta"
                     href="https://www.instagram.com/bernardbolter/"
                     initial={{ translateX: 200 }}
                     animate={{ translateX: 0 }}
@@ -79,7 +86,8 @@ const Intro = () => {
                     <Insta />
                     <h4 style={{ color: smooth.primaryDark }}>@bernardbolter</h4>
                 </motion.a>
-                <motion.a 
+                <motion.a
+                    className="github"
                     href="https://github.com/bernardbolter"
                     initial={{ translateX: 200 }}
                     animate={{ translateX: 0 }}
@@ -101,22 +109,19 @@ const Intro = () => {
                         className="intro-arrow"
                         style={{ fill: smooth.primaryDark, color: smooth.primaryDark }}    
                     >
-                        <svg viewBox="0 0 16 22">
-                            <path d="M6.91401 20.6483L0.905182 13.4873C0.496645 13.0002 0.441553 12.3081 0.767887 11.7625C1.29419 10.8826 2.53142 10.7842 3.19062 11.5698L4.66811 13.3308C5.31234 14.099 6.56471 13.6429 6.56471 12.6405V2.48563C6.56471 2.2158 6.63793 1.95126 6.77611 1.71978C7.35522 0.752016 8.75755 0.752016 9.33627 1.71978C9.47462 1.95125 9.54766 2.21581 9.54766 2.48563V12.6405C9.54766 13.6433 10.7999 14.099 11.4443 13.3308L12.9218 11.5699C13.5811 10.7842 14.8182 10.8828 15.3445 11.7627C15.6708 12.3081 15.6161 13.0004 15.2072 13.4875L9.19836 20.6485C8.60234 21.3591 7.50931 21.3591 6.91401 20.6483V20.6483Z" />
-                        </svg>
+                        <Arrow />
                     </div>
                     <p>contact</p>
                 </motion.div>
             </motion.div>
             <motion.div className="lead">
-                <h1>Out here, helping</h1>
-                <h1>artists and companies make</h1>
-                <h1>thier message smooth</h1>
+                <h1>A Smooth</h1>
+                <h1>Operation.</h1>
             </motion.div>
             <motion.div className="pitch">
                 <h2>from Contemporary Art Concepts</h2>
                 <h2 className="pitch-padding">to Functional React Components</h2>
-                <h3>(but also Modern Concepts,</h3>
+                <h3>(but also Modern Art Concepts,</h3>
                 <h3> and we can keep them components classy, too)</h3>
             </motion.div>
         </section>

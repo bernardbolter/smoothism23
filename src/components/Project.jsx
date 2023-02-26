@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useMemo } from 'react'
 import { SmoothContext } from '../providers/SmoothProvider'
 import { motion, useViewportScroll, useTransform } from 'framer-motion'
 import { useWindowSize } from '../helpers/useWindowSize'
@@ -34,6 +34,68 @@ const Project = ({ project, index }) => {
             document.body.style.overflow = "auto"
         }
     }, [viewWebsite, setSmooth])
+
+    const projectScreenShot = useMemo(() => {
+        if (size.width < 350) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_1.jpg`
+        } else if (size.width < 400) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_2.jpg`
+        } else if (size.width < 450) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_3.jpg`
+        } else if (size.width < 500) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_4.jpg`
+        } else if (size.width < 550) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_5.jpg`
+        } else if (size.width < 600) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_6.jpg`
+        } else if (size.width < 650) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_7.jpg`
+        } else if (size.width < 700) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_8.jpg`
+        } else if (size.width < 750) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_9.jpg`
+        } else if (size.width < 800) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_10.jpg`
+        } else if (size.width < 850) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_11.jpg`
+        } else if (size.width < 900) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_12.jpg`
+        } else if (size.width < 950) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_13.jpg`
+        } else if (size.width < 1000) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_14.jpg`
+        } else if (size.width < 1050) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_15.jpg`
+        } else if (size.width < 1100) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_16.jpg`
+        } else if (size.width < 1150) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_17.jpg`
+        } else if (size.width < 1200) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_18.jpg`
+        } else if (size.width < 1250) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_19.jpg`
+        } else if (size.width < 1300) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_20.jpg`
+        } else if (size.width < 1350) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_21.jpg`
+        } else if (size.width < 1400) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_22.jpg`
+        } else if (size.width < 1450) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_23.jpg`
+        } else if (size.width < 1550) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_24.jpg`
+        } else if (size.width < 1600) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_25.jpg`
+        } else if (size.width < 1650) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_26.jpg`
+        } else if (size.width < 1700) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_27.jpg`
+        } else if (size.width < 1750) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_28.jpg`
+        } else if (size.width < 1800) {
+            return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_29.jpg`
+        } else return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_30jpg`
+    }, [size.width])
 
     return (
         <section className="project-container">
@@ -148,7 +210,7 @@ const Project = ({ project, index }) => {
                         bottom: 0,
                         width: "110%",
                         height: size.width < 550 ? size.height * .25 : size.height * .3,
-                        transform: even ? 'rotate(-10deg)' : 'rotate(10deg',
+                        transform: even ? 'rotate(-10deg)' : 'rotate(10deg)',
                         transformOrigin: even ? 'right bottom' : 'left bottom' 
                     }}
                 >
@@ -195,18 +257,12 @@ const Project = ({ project, index }) => {
                 style={{
                     width: viewWebsite ? size.width : size.width - 15,
                     height: size.height,
-                    zIndex: websiteZ ? 900 : 9
+                    zIndex: websiteZ ? 900 : 9,
                 }}    
-            >
-                <iframe
-                    title={project.website}
-                    width={size.width}
-                    height={size.height}
-                    scrolling={viewWebsite ? "yes" : "no"}
-                    frameBorder="0"
-                    src={project.link}
-                />
+            >   
+                <img src={projectScreenShot} alt={`screenshot from ${project.website}`} />
             </div>
+
         </section>
     )
 }

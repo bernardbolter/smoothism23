@@ -15,8 +15,10 @@ const SmoothProvider = ({ children }) => {
         introHeight: 0,
         projectBorder: 0,
         projects: Projects,
-        footerModal: 'none',
-        viewNavigation: true
+        viewNavigation: true,
+        viewImpressum: false,
+        viewDaten: false,
+        viewFooterItems: false
     })
 
     useEffect(() => {

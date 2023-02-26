@@ -6,18 +6,19 @@ const Impressum = () => {
     const [smooth, setSmooth] = useContext(SmoothContext)
     return (
         <motion.section 
-            initial={{ translateY: '50vh'}}
-            animate={{ translateY: 0 }}
-            exit={{ translateY: '50vh' }}
-            transition={{ duration: .5 }} 
-            className="modal-container"
+            initial={{ translateX: 0}}
+            animate={{ translateX: smooth.viewImpressum ? 0 : '-100%' }}
+            exit={{ translateX: 0 }}
+            transition={{ duration: 1 }} 
+            className="impressum-container"
             style={{ 
                 color: smooth.secondaryDark, 
                 backgroundColor: smooth.secondaryLight,
-                borderTop: `1px solid ${smooth.secondaryDark}`
+                display: smooth.viewFooterItems ? 'block' : 'none'
             }}    
         >
-            <div className="modal-box">
+            <div className="impressum-gradient" />
+            <div className="impressum-content">
                 <h1>IMPRESSUM</h1>
                 <h2>AUTOR DIESES INTERNETANGEBOTES UND INHABER VON SMOOTHISM</h2>
                 <h5>Bernard John Bolter IV</h5>
@@ -28,10 +29,9 @@ const Impressum = () => {
                 <h5>US: +1 415 490 7702 <span>what's app, telegram, and signal</span></h5>
                 <h4>Steuer Nr. 15/235/05740</h4>
             </div>
-            <p>Impressum</p>
             <div
-                className="modal-close"
-                onClick={() => setSmooth(state => ({ ...state, footerModal: 'none' }))}
+                className="impressium-close"
+                onClick={() => setSmooth(state => ({ ...state, viewImpressum: false }))}
             >
                 <svg viewBox="0 0 60 60">
                     <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,.2)"/>

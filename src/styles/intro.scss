@@ -6,10 +6,39 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	position: relative;
+    z-index: 1;
+}
+
+.intro-mask {
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .logo {
     position: absolute;
+    z-index: 100;
     top: 15px;
     left: 15px;
     width: 75px;
@@ -31,6 +60,7 @@
 
 .bernard {
     position: absolute;
+    z-index: 100;
     top: 15px;
     right: 15px;
     display: flex;
@@ -98,6 +128,7 @@
 
 .into-links {
     position: absolute;
+    z-index: 100;
     z-index: 400;
     right: 15px;
     top: 120px;
@@ -131,7 +162,8 @@
         }
 
         svg {
-            width: 20px;
+            width: 25px;
+            fill: black;
         }
 
         h4 {
@@ -145,12 +177,13 @@
     .intro-contact {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
-        align-items: flex-start;
+        justify-content: flex-start;
+        align-items: center;
         margin-top: 14px;
         opacity: .5;
         transition: opacity .5s ease;
         cursor: pointer;
+        z-index: 100;
 
         @media screen and (min-width: $tablet) {
             margin-top: 174px;
@@ -162,7 +195,8 @@
         }
 
         .intro-arrow {
-            width: 15px;
+            width: 25px;
+            transform: rotate(90deg);
 
             svg {
                 width: 100%;
@@ -170,22 +204,23 @@
         }
 
         p {
-            font-family: "IBM Plexo Mono", monospace;
             font-size: 15px;
             margin: 0;
             padding: 0 0 0 5px;
+            font-weight: 600;
         }
     }
 }
 
 .lead {
     position: absolute;
+    z-index: 100;
     top: 220px;
     margin: 0 5%;
 
     @media screen and (min-width: $mobile) {
         top: 35vh;
-        left: 20%;
+        right: 20%;
         margin: 0;
     }
 
@@ -195,33 +230,34 @@
     }
 
     h1 {
-        font-size: 17px;
-        line-height: 24px;
+        font-size: 27px;
+        line-height: 34px;
         font-weight: 700;
         margin: 0;
         padding: 0;
         text-align: left;
 
         @media screen and (min-width: $mobile) {
-            font-size: 20px;
-            line-height: 28px;
+            font-size: 30px;
+            line-height: 38px;
         }
 
         @media screen and (min-width: $tablet) {
-            font-size: 28px;
-            line-height: 34px;
+            font-size: 38px;
+            line-height: 44px;
             text-align: right;
         }
 
         @media screen and (min-width: $desktop) {
-            font-size: 32px;
-            line-height: 38px;
+            font-size: 52px;
+            line-height: 58px;
         }
     }
 }
 
 .pitch {
     position: absolute;
+    z-index: 100;
     top: 350px;
     right: 40px;
 
@@ -272,7 +308,7 @@
 
 .box {
     position: absolute;
-    z-index: 1;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;

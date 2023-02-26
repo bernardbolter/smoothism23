@@ -1,11 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { SmoothContext } from '../providers/SmoothProvider'
 import { motion } from 'framer-motion'
 import * as Scroll from 'react-scroll'
 
 const Footer = () => {
     const [smooth, setSmooth] = useContext(SmoothContext)
+    const [scrollTop, setScrollTop] = useState(0)
+    console.log(smooth)
     var scroll = Scroll.animateScroll;
+
+    useEffect(() => {
+        const onScroll = e => {
+            setScrollTop(e.target.documentElement.scrollTop)
+            if (e.target.documentElement.scrollTop !== scrollTop) {
+                setSmooth(state => ({ ...state, viewDaten: false, viewImpressum: false, viewFooterItems: true }))
+            }
+        };
+        window.addEventListener("scroll", onScroll);
+    
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [scrollTop]);
 
     return (
         <motion.footer
@@ -22,14 +36,23 @@ const Footer = () => {
                 <span className="copy">&copy;</span>
                 <span>{new Date().getFullYear()}</span>
             </p>
-            {/* <p
-                onClick={() => setSmooth(state => ({ ...state, footerModal: state.footerModal === 'philosophy' ? 'none' : 'philosophy' }))}
-            >Philosophy of Smoothism</p> */}
             <p
-                onClick={() => setSmooth(state => ({ ...state, footerModal: state.footerModal === 'impressum' ? 'none' : 'impressum' }))}
+                onClick={() => {
+                    setSmooth(state => 
+                        ({ ...state, 
+                            viewImpressum: !state.viewImpressum,
+                            viewDaten: state.viewImpressum ? true : false,
+                        }))
+                }}
             >Impressum</p>
             <p
-                onClick={() => setSmooth(state => ({ ...state, footerModal: state.footerModal === 'datne' ? 'none' : 'daten' }))}
+                onClick={() => {
+                    setSmooth(state => 
+                        ({ ...state, 
+                            viewDaten: !state.viewDaten,
+                            viewImpressum: state.viewDaten ? true : false, 
+                        }))
+                }}
             >Datenschutzerklärung</p>
         </motion.footer>
     )

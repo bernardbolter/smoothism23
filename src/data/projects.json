@@ -1,6 +1,7 @@
 [
     {
         "website" : "countdowngrabowsee.de",
+        "slug" : "countdown-grabowsee",
         "link" : "https://countdowngrabowsee.de",
         "tagline" : "Artist Residency located just outside of Berlin",
         "madeWith" : "Vue, Google Forms as backend, Sass, Figma",
@@ -8,6 +9,7 @@
     },
     {
         "website" : "manmademastering.com",
+        "slug" : "manmade-mastering",
         "link" : "https://manmademastering.com",
         "tagline" : "Vinyl Mastering Company based in Berlin",
         "madeWith" : "JQuery, Gulp, Sass, Sendgrid, Sketch, Sublime Text, Photoshop, and a little bit of PHP",
@@ -15,6 +17,7 @@
     },
     {
         "website" : "megacities.world",
+        "slug" : "megacities",
         "link" : "http://megacities.world",
         "tagline" : "Composite Country Portraits, an art project using satellite images",
         "madeWith" : "React with Gatsby, D3, VScode, Figma",
@@ -22,6 +25,7 @@
     },
     {
         "website" : "herbstsalon.berlin",
+        "slug" : "herbst-salon",
         "link" : "http://herbstsalon.berlin",
         "tagline" : "Art Event located in the Schöneberg, Berlin",
         "madeWith" : "React with Gatsby, Contentful backend, Mapbox, VScode, Figma",
@@ -29,6 +33,7 @@
     },
     {
         "website" : "augustinpalm.se",
+        "slug" : "augustin-palm",
         "link" : "http://www.augustinpalm.se/",
         "tagline" : "Swedish media journalist",
         "madeWith" : "Wordpress, Jquery, Sketch, Issuu Api",

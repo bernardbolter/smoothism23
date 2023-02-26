@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { SmoothContext } from '../providers/SmoothProvider'
 import { useWindowSize } from '../helpers/useWindowSize'
-import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import * as Scroll from 'react-scroll'
 
 const Nav = () => {
@@ -9,8 +9,8 @@ const Nav = () => {
     const [navOpen, setNavOpen] = useState(false)
     const size = useWindowSize()
 
-    const { scrollY } = useViewportScroll()
-    // console.log(scrollY)
+    const { scrollY } = useScroll()
+    console.log(scrollY)
     const navVisible = useTransform(scrollY, [smooth.introHeight - 400, smooth.introHeight + 100], [0,1])
     // console.log(navVisible)
     var scroll = Scroll.animateScroll;

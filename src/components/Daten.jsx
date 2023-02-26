@@ -7,18 +7,25 @@ const Daten = () => {
     
     return (
         <motion.section
-            initial={{ translateY: '50vh'}}
-            animate={{ translateY: 0 }}
-            exit={{ translateY: '50vh' }}
-            transition={{ duration: .5 }}
+            initial={{ translateX: 0}}
+            animate={{ translateX: smooth.viewDaten ? 0 : '100%' }}
+            exit={{ translateX: 0 }}
+            transition={{ duration: 1 }}
             key="daten"
-            className="modal-container"
-            style={{ color: smooth.primaryDark, backgroundColor: smooth.secondaryLight }}    
+            className="daten-container"
+            style={{ 
+                color: smooth.primaryDark, 
+                backgroundColor: smooth.secondaryLight ,
+                display: smooth.viewFooterItems ? 'block' : 'none'
+            }}    
         >
-            <p>Daten</p>
+            <div className="daten-gradient" />
+            <div className="daten-content">
+                <h1>Datenschutz</h1>
+            </div>
             <div
-                className="modal-close"
-                onClick={() => setSmooth(state => ({ ...state, footerModal: 'none' }))}
+                className="daten-close"
+                onClick={() => setSmooth(state => ({ ...state, viewDaten: false }))}
             >
                 <svg viewBox="0 0 60 60">
                     <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,.2)"/>
