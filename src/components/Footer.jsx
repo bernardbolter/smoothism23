@@ -41,7 +41,7 @@ const Footer = () => {
                     setSmooth(state => 
                         ({ ...state, 
                             viewImpressum: !state.viewImpressum,
-                            viewDaten: state.viewImpressum ? true : false,
+                            viewDaten: false,
                         }))
                 }}
             >Impressum</p>
@@ -50,7 +50,7 @@ const Footer = () => {
                     setSmooth(state => 
                         ({ ...state, 
                             viewDaten: !state.viewDaten,
-                            viewImpressum: state.viewDaten ? true : false, 
+                            viewImpressum: false, 
                         }))
                 }}
             >Datenschutzerklärung</p>

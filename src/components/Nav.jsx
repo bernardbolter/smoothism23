@@ -10,9 +10,7 @@ const Nav = () => {
     const size = useWindowSize()
 
     const { scrollY } = useScroll()
-    console.log(scrollY)
     const navVisible = useTransform(scrollY, [smooth.introHeight - 400, smooth.introHeight + 100], [0,1])
-    // console.log(navVisible)
     var scroll = Scroll.animateScroll;
 
     return (

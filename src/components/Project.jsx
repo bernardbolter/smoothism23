@@ -1,18 +1,22 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react'
 import { SmoothContext } from '../providers/SmoothProvider'
-import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useWindowSize } from '../helpers/useWindowSize'
 import * as Scroll from 'react-scroll'
 
 import Github from '../svg/github'
+import Info from '../svg/info'
+import Plus from '../svg/plus'
+import Minus from '../svg/minus'
 
 const Project = ({ project, index }) => {
     const [smooth, setSmooth] = useContext(SmoothContext)
     const [viewWebsite, setViewWebsite] = useState(false)
+    const [viewInfo, setViewInfo] = useState(true)
     const [websiteZ, setWebsiteZ] = useState(false)
     const [even] = useState(index % 2 === 0 ? true : false)
     const size = useWindowSize()
-    const { scrollY } = useViewportScroll()
+    const { scrollY } = useScroll()
     var scroll = Scroll.animateScroll;
     const movingWidth = useTransform(scrollY, [index * size.height, smooth.introHeight + (size.height * index)], [size.width - 44 - smooth.projectBorder - smooth.projectBorder, smooth.projectBorder])
     const bottomHeight = useTransform(scrollY, [index * size.height, smooth.introHeight + (size.height * index)], [size.height - 44 - smooth.projectBorder - smooth.projectBorder, smooth.projectBorder])
