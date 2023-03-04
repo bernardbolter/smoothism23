@@ -68,7 +68,6 @@ const ContactForm = () => {
                 }
             >
                 {({ errors, touched, isSubmitting }) => {
-                    console.log("subing: ", isSubmitting)
                     return (
                     <Form name="smoothism-contact">
                         <div className="form-input form-name">

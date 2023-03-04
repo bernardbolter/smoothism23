@@ -63,13 +63,17 @@ const Intro = () => {
             >
                 {
                     [1,2,3,4].map(i => (
-                        <svg  viewBox="0 0 426 244" key={i}>
+                        <svg
+                            viewBox="0 0 426 244" 
+                            key={i}
+                            style={{ width: `${i * 22}%`}}    
+                        >
                             <motion.path 
                                 d="M0 243.5V0.5H425.5V172.5L313.5 243.5H0Z" 
                                 initial={{ fill: smooth.primaryDark, opacity: 0 }}
-                                animate={{ scale: `0.${i * 2}`, opacity: `0.0${i * 2}`  }}
+                                animate={{ opacity: `0.0${i * 2}`  }}
                                 transition={{ duration: 2.0, ease: "linear", delay: `${i}` }}
-                                style={{ transform:  "scale(1)" }}
+                                // style={{ transform:  `scale(0.${i * 2})` }}
                             />
                         </svg>
                     ))

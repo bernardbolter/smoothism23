@@ -12,8 +12,7 @@ import Minus from '../svg/minus'
 const Project = ({ project, index }) => {
     const [smooth, setSmooth] = useContext(SmoothContext)
     const [viewWebsite, setViewWebsite] = useState(false)
-    const [viewInfo, setViewInfo] = useState(true)
-    const [websiteZ, setWebsiteZ] = useState(false)
+    const [viewInfo, setViewInfo] = useState(false)
     const [even] = useState(index % 2 === 0 ? true : false)
     const size = useWindowSize()
     const { scrollY } = useScroll()
@@ -21,23 +20,17 @@ const Project = ({ project, index }) => {
     const movingWidth = useTransform(scrollY, [index * size.height, smooth.introHeight + (size.height * index)], [size.width - 44 - smooth.projectBorder - smooth.projectBorder, smooth.projectBorder])
     const bottomHeight = useTransform(scrollY, [index * size.height, smooth.introHeight + (size.height * index)], [size.height - 44 - smooth.projectBorder - smooth.projectBorder, smooth.projectBorder])
     const projectLinkVisible = useTransform(scrollY, [(index * size.height) + (smooth.introHeight * .1), (index * size.height) + (smooth.introHeight * .5)], [1, 0])
-    // console.log('pro link ', projectLinkVisible)
     const headerVisible = useTransform(scrollY, [(index * size.height) + (smooth.introHeight * .5), (index * size.height) + (smooth.introHeight * .9)], [0, 1])
-    // console.log(headerVisible)
 
-    useEffect(() => {
-        if (viewWebsite) {
-            setTimeout(() => {
-                setSmooth(state => ({ ...state, viewNavigation: false }))
-                setWebsiteZ(true)
-                document.body.style.overflow = "hidden"
-            }, 1000)
-        } else {
-            setSmooth(state => ({ ...state, viewNavigation: true }))
-            setWebsiteZ(false)
-            document.body.style.overflow = "auto"
-        }
-    }, [viewWebsite, setSmooth])
+    const openTab = (href, target = '_blank') => {
+        console.log("open seseme")
+        // window.open(href, target, 'noreferer')
+        const link = Object.assign(document.createElement('a'), { href, target });
+        document.body.append(link);
+        link.click();
+        link.remove();
+        console.log(`Opening: ${href}`);
+      }
 
     const projectScreenShot = useMemo(() => {
         if (size.width < 350) {
@@ -103,7 +96,7 @@ const Project = ({ project, index }) => {
 
     return (
         <section className="project-container">
-            {viewWebsite && (
+            {/* {viewWebsite && (
                 <motion.div
                     className="project-live-nav"
                     style={{
@@ -115,7 +108,7 @@ const Project = ({ project, index }) => {
                         onClick={() => setViewWebsite(false)}
                     >back to smoothism.com</p>
                 </motion.div>
-            )}
+            )} */}
             <motion.div 
                 className="view-projects"
                 style={{
@@ -137,9 +130,6 @@ const Project = ({ project, index }) => {
                     width: size.width - 15,
                     height: size.height
                 }}
-                initial={{ opacity: 1 }}
-                animate={{ opacity: viewWebsite ? 0 : 1 }}
-                transition={{ duration: 1, ease: "linear" }}  
             >
                 <motion.p
                     className="project-website"
@@ -247,13 +237,16 @@ const Project = ({ project, index }) => {
                 <div 
                     className="web-link"
                     onClick={() => {
-                        scroll.scrollTo(smooth.introHeight + (size.height * index))
-                        setViewWebsite(true)
+                        // scroll.scrollTo(smooth.introHeight + (size.height * index))
+                        // setViewWebsite(true)
+                        console.log('clicked for URL')
+                        window.open(project.link, '_blank').focus()
+                        // handleViewWebsite(project.link)
                     }}
                 >
                     <p
                         style={{ color: smooth.primaryDark }}
-                    >view live website</p>
+                    >visit website</p>
                 </div>
             </motion.div>
             <div 
@@ -261,12 +254,36 @@ const Project = ({ project, index }) => {
                 style={{
                     width: viewWebsite ? size.width : size.width - 15,
                     height: size.height,
-                    zIndex: websiteZ ? 900 : 9,
+                    zIndex: 9
                 }}    
             >   
                 <img src={projectScreenShot} alt={`screenshot from ${project.website}`} />
             </div>
-
+            <motion.section
+                initial={{ maxHeight: 30 }}
+                animate={viewInfo 
+                    ? { maxHeight: 600, 
+                        width: size.width < 500 ? '80%' : size.width < 769 ? '65%' : size.width < 1100 ? '50%' : '35%'
+                    } 
+                    : { maxHeight: 30, width: 60 } 
+                }
+                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                className={viewInfo ? 'project-info project-info-on' : 'project-info'}
+                style={{
+                    top: smooth.projectBorder,
+                    left: index % 2 === 0 ? smooth.projectBorder : 'auto',
+                    right: index % 2 === 0 ? 'auto' : smooth.projectBorder
+                }}    
+            >
+                <div 
+                    className="project-info-icons"
+                    onClick={() => setViewInfo(!viewInfo)}    
+                >
+                    <Info />
+                    {viewInfo ? <Plus /> : <Minus />}
+                </div>
+                <h2>{project.description}</h2>
+            </motion.section>
         </section>
     )
 }

@@ -6,7 +6,6 @@ import * as Scroll from 'react-scroll'
 const Footer = () => {
     const [smooth, setSmooth] = useContext(SmoothContext)
     const [scrollTop, setScrollTop] = useState(0)
-    console.log(smooth)
     var scroll = Scroll.animateScroll;
 
     useEffect(() => {
