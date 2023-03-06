@@ -2,7 +2,7 @@ import React from "react";
 
 const Github = () => {
   return (
-    <svg viewBox="0 0 15 15" fill="none">
+    <svg viewBox="0 0 15 15">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

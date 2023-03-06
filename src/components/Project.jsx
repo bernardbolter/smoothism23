@@ -22,16 +22,6 @@ const Project = ({ project, index }) => {
     const projectLinkVisible = useTransform(scrollY, [(index * size.height) + (smooth.introHeight * .1), (index * size.height) + (smooth.introHeight * .5)], [1, 0])
     const headerVisible = useTransform(scrollY, [(index * size.height) + (smooth.introHeight * .5), (index * size.height) + (smooth.introHeight * .9)], [0, 1])
 
-    const openTab = (href, target = '_blank') => {
-        console.log("open seseme")
-        // window.open(href, target, 'noreferer')
-        const link = Object.assign(document.createElement('a'), { href, target });
-        document.body.append(link);
-        link.click();
-        link.remove();
-        console.log(`Opening: ${href}`);
-      }
-
     const projectScreenShot = useMemo(() => {
         if (size.width < 350) {
             return `https://thefilterman.de/smoothism/${project.slug}/${project.slug}_1.jpg`
@@ -96,19 +86,6 @@ const Project = ({ project, index }) => {
 
     return (
         <section className="project-container">
-            {/* {viewWebsite && (
-                <motion.div
-                    className="project-live-nav"
-                    style={{
-                        background: smooth.primaryLight,
-                        border: `solid 1px ${smooth.primaryDark}`
-                    }}
-                >
-                    <p
-                        onClick={() => setViewWebsite(false)}
-                    >back to smoothism.com</p>
-                </motion.div>
-            )} */}
             <motion.div 
                 className="view-projects"
                 style={{
@@ -127,7 +104,7 @@ const Project = ({ project, index }) => {
             <motion.div 
                 className="project-mask"
                 style={{
-                    width: size.width - 15,
+                    width: '100%',
                     height: size.height
                 }}
             >
@@ -237,11 +214,7 @@ const Project = ({ project, index }) => {
                 <div 
                     className="web-link"
                     onClick={() => {
-                        // scroll.scrollTo(smooth.introHeight + (size.height * index))
-                        // setViewWebsite(true)
-                        console.log('clicked for URL')
                         window.open(project.link, '_blank').focus()
-                        // handleViewWebsite(project.link)
                     }}
                 >
                     <p
@@ -280,7 +253,7 @@ const Project = ({ project, index }) => {
                     onClick={() => setViewInfo(!viewInfo)}    
                 >
                     <Info />
-                    {viewInfo ? <Plus /> : <Minus />}
+                    {viewInfo ? <Minus /> : <Plus />}
                 </div>
                 <h2>{project.description}</h2>
             </motion.section>

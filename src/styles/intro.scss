@@ -15,13 +15,17 @@
 
 .intro-mask {
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     margin: 0;
     padding: 0;
     top: 0;
     left: 0;
     position: absolute;
     z-index: 2;
+
+    @media screen and (min-width: $mobile) {
+        height: 80vh;
+    }
 }
 
 @keyframes gradient {
